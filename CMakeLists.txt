@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.7...3.20 FATAL_ERROR)
-project(FileServer CXX)
+include(FeatureSummary)
+file(STRINGS "${CMAKE_CURRENT_SOURCE_DIR}/VERSION" APP_VERSION)
+message(STATUS "Application version: ${APP_VERSION}")
+
+project(FileServer VERSION ${APP_VERSION} DESCRIPTION "File Server" LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -55,3 +59,5 @@ SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY
         "Single Directory for all"
         )
 install(TARGETS file_server file_client DESTINATION ${INSTALL_DIRECTORY})
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
