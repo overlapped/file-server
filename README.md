@@ -1,3 +1,5 @@
+[![File Server 1.0](https://github.com/overlapped/file-server/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/overlapped/file-server/actions/workflows/build.yml)
+
 # Файловый сервер (тестовое задание)
 
 > Необходимо разработать серверную компоненту, которая поддерживает до 10000 подключений к серверу по протоколу tcp.
