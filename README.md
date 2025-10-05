@@ -1,4 +1,4 @@
-[![File Server 1.0](https://github.com/overlapped/file-server/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/overlapped/file-server/actions/workflows/build.yml)
+[![File Server 1.0](https://github.com/overlapped/file-server/actions/workflows/cmake-single-platform.yml/badge.svg?branch=main)](https://github.com/overlapped/file-server/actions/workflows/cmake-single-platform.yml)
 
 # Файловый сервер (тестовое задание)
 
