@@ -41,3 +41,18 @@ TEST(LoadDistributionTest, ConnectionManagerLoadAwareness) {
     // Сначала нет нагрузки.
     EXPECT_FALSE(manager.isUnderHeavyLoad());
 }
+
+TEST(LoadDistributionTest, ClientIdDistribution) {
+    auto &manager = ConnectionManager::getInstance();
+
+    // Тест что Id последовательный и уникальный.
+    uint64_t id1 = manager.assignClientId();
+    uint64_t id2 = manager.assignClientId();
+    uint64_t id3 = manager.assignClientId();
+
+    EXPECT_GT(id2, id1);
+    EXPECT_GT(id3, id2);
+    EXPECT_NE(id1, id2);
+    EXPECT_NE(id2, id3);
+    EXPECT_NE(id1, id3);
+}
