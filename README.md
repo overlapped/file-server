@@ -60,3 +60,51 @@ cmake --install .
 ./file_server_tests
 ./file_server_benchmarks
 ```
+
+```shell
+[==========] Running 8 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from ConnectionManagerTest
+[ RUN      ] ConnectionManagerTest.SingletonInstance
+[       OK ] ConnectionManagerTest.SingletonInstance (0 ms)
+[ RUN      ] ConnectionManagerTest.ClientIdAssignment
+[       OK ] ConnectionManagerTest.ClientIdAssignment (0 ms)
+[ RUN      ] ConnectionManagerTest.ConnectionLimits
+[       OK ] ConnectionManagerTest.ConnectionLimits (0 ms)
+[----------] 3 tests from ConnectionManagerTest (0 ms total)
+
+[----------] 2 tests from DynamicFileGeneratorTest
+[ RUN      ] DynamicFileGeneratorTest.ChunkGeneration
+[       OK ] DynamicFileGeneratorTest.ChunkGeneration (0 ms)
+[ RUN      ] DynamicFileGeneratorTest.ConsistentChunkGeneration
+[       OK ] DynamicFileGeneratorTest.ConsistentChunkGeneration (0 ms)
+[----------] 2 tests from DynamicFileGeneratorTest (0 ms total)
+
+[----------] 3 tests from LoadDistributionTest
+[ RUN      ] LoadDistributionTest.ConcurrentConnections
+[       OK ] LoadDistributionTest.ConcurrentConnections (14 ms)
+[ RUN      ] LoadDistributionTest.ConnectionManagerLoadAwareness
+[       OK ] LoadDistributionTest.ConnectionManagerLoadAwareness (0 ms)
+[ RUN      ] LoadDistributionTest.ClientIdDistribution
+[       OK ] LoadDistributionTest.ClientIdDistribution (0 ms)
+[----------] 3 tests from LoadDistributionTest (14 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 3 test suites ran. (14 ms total)
+[  PASSED  ] 8 tests.
+
+Run on (6 X 4000 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x6)
+  L1 Instruction 32 KiB (x6)
+  L2 Unified 256 KiB (x6)
+  L3 Unified 9216 KiB (x1)
+Load Average: 0.07, 0.42, 0.41
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+--------------------------------------------------------------------------------------
+Benchmark                            Time             CPU   Iterations UserCounters...
+--------------------------------------------------------------------------------------
+BM_ChunkGeneration/1024           1154 ns         1154 ns       596365 bytes_per_second=845.991Mi/s
+BM_ChunkGeneration/1048576      947852 ns       947834 ns          733 bytes_per_second=1.03031Gi/s
+BM_ChunkGeneration/10485760    9402855 ns      9402394 ns           72 bytes_per_second=1.03863Gi/s
+```
