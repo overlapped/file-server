@@ -29,3 +29,15 @@ TEST(LoadDistributionTest, ConcurrentConnections) {
 
     EXPECT_GE(successful_connections.load(), num_threads - 10);
 }
+
+TEST(LoadDistributionTest, ConnectionManagerLoadAwareness) {
+    auto &manager = ConnectionManager::getInstance();
+
+    // Тест что менеджер подключений правильно выдает статистику нагрузки.
+    double utilization = manager.getConnectionUtilization();
+    EXPECT_GE(utilization, 0.0);
+    EXPECT_LE(utilization, 1.0);
+
+    // Сначала нет нагрузки.
+    EXPECT_FALSE(manager.isUnderHeavyLoad());
+}

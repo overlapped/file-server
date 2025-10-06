@@ -19,4 +19,4 @@ target_link_libraries(file_server_tests
 )
 
 # Add test
-gtest_add_tests(file_server_tests)
+gtest_discover_tests(file_server_tests)
